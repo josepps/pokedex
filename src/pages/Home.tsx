@@ -1,7 +1,7 @@
 import CardPokemon from "../components/CardPokemon";
 import NavBar from "../components/NavBar";
 import './Home.css';
-import pokemonList from "../assets/pokemon.json"
+import pokemonList from "../assets/pokemon.json";
 
 function Home() {
     const { pokemons } = pokemonList;

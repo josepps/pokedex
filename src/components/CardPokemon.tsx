@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./CardPokemon.css";
 
 type CardPokemonProps = {
@@ -7,13 +8,15 @@ type CardPokemonProps = {
 
 function CardPokemon(props: CardPokemonProps) {
     return (
-        <div className="card">
-            <div className="info">
-                <span className="info__number">#{props.id.toString().padStart(3, "0")} </span>
-                <p className="info__name">{props.name}</p>
+        <Link to={`/details/${props.id}`}>
+            <div className="card">
+                <div className="info">
+                    <span className="info__number">#{props.id.toString().padStart(3, "0")} </span>
+                    <p className="info__name">{props.name}</p>
+                </div>
+                <img className="card__img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.id}.png`} alt={props.name} />
             </div>
-            <img className="card__img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.id}.png`} alt={props.name} />
-        </div>
+        </Link>
     );
 }
 
