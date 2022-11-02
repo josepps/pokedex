@@ -12,7 +12,7 @@ function Home() {
 
     <div className="list">
         {pokemons.map((pokemon) => (
-        <CardPokemon key={pokemon.id} id={pokemon.id} name={pokemon.name} />
+        <CardPokemon key={pokemon.id} id={pokemon.id} name={pokemon.name} types={pokemon.types} />
         ))}
     </div>
     </>
