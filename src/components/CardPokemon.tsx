@@ -12,7 +12,7 @@ export type CardPokemonProps = {
     id: number;
     name: string;
     types: Array<PokemonTypeProps>;
-}
+};
 
 function CardPokemon(props: CardPokemonProps) {
     return (
