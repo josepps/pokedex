@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import './NavBar.css';
+import { Nav, BtnGoBack } from "./NavBar.style";
 
 type NavBarProps = {
     hasGoBack?: boolean;
@@ -7,10 +7,10 @@ type NavBarProps = {
 
 function NavBar(props: NavBarProps) {
     return (
-        <nav className="nav">
+        <Nav className="nav">
             <Link to="/" className='brand'>Pokédex</Link>
-            {props.hasGoBack && (<Link to="/" className='btn-goBack'>Voltar</Link>)}
-        </nav>
+            {props.hasGoBack && (<BtnGoBack to="/" >Voltar</BtnGoBack>)}
+        </Nav>
     )
 }
 
