@@ -7,14 +7,19 @@ import { CardPokemonProps } from '../components/CardPokemon';
 import api from '../services/api';
 import { StoreState } from '../redux';
 import { add, remove } from '../redux/favoriteSlice';
-import { Container, Image, Card, Number, Title, Button } from "./Details.style";
+import { Container, Image, Card, Number, Title, Button, Label, Value, ButtonMobile } from "./Details.style";
+
+type DetailsProps = CardPokemonProps & {
+    height: number;
+    weight: number;
+}
 
 function Details() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const listaPokemonsFavoritos = useSelector((state: StoreState) => state.favorite);
     const [isLoading, setIsLoading] = useState(true);
-    const[pokemonData, setPokmonData] = useState<CardPokemonProps>({} as CardPokemonProps);
+    const[pokemonData, setPokmonData] = useState<DetailsProps>({} as DetailsProps);
 
     function handleClickAdd() {
         dispatch(add(id));
@@ -30,6 +35,8 @@ function Details() {
             id: data.id,
             name: data.name,
             types: data.types,
+            height: data.height / 10,
+            weight: data.weight / 10,
             });
             setIsLoading(false);
         }
@@ -56,12 +63,24 @@ function Details() {
                         return <Badge key={index} name={item.type.name} />
                         })}
 
+                    <Label>Peso</Label>
+                    <Value>{pokemonData.weight}Kg</Value>
+
+                    <Label>Altura</Label>
+                    <Value>{pokemonData.height}m</Value>
+
                     {!!listaPokemonsFavoritos.find((pokemon) => String(pokemon) === String(id)
                     )? (
-                        <Button onClick={handleClickRemove}>Remover dos favoritos</Button> )
-                    : (
+                        <>
+                        <Button onClick={handleClickRemove}>Remover dos favoritos</Button> 
+                        <ButtonMobile onClick={handleClickRemove}>-</ButtonMobile>
+                        </>
+                    ) : (
+                        <>
                         <Button onClick={handleClickAdd}>Adicionar aos favoritos</Button> 
-                    )}      
+                        <ButtonMobile onClick={handleClickAdd}>+</ButtonMobile>
+                        </>
+                    )}    
                 </Card>
             </Container>            
         </>

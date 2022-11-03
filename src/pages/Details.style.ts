@@ -2,17 +2,35 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     height: calc(100vh - 4rem - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
+
+    @media only screen and (max-width: 900px) {
+      height: 100%;
+        flex-direction: column;
+    }
 `;
 
 export const Image = styled.img`
+    width: 100%;
 
+    @media only screen and (max-width: 900px) {
+      max-width: 300px;
+    }
 `;
 
 export const Card = styled.div`
+    width: 100%; 
     border: 4px solid;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     padding: 50px;
+
+    @media only screen and (max-width: 600px) {
+      padding: 1rem;
+    }
 
 &.type--bug {
   background-color: #8bd674;
@@ -100,8 +118,58 @@ export const Title = styled.h1`
     font-size: 64px;
     line-height: 83px;
     color: #fff;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 2.5rem;
+    }
+`;
+
+export const ButtonMobile = styled.button`
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    margin-top: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+    font-weight: 600;
+    font-size: 24px;
+    color: rgba(23, 23, 27, 0.6);
+
+    @media only screen and (max-width: 600px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 `;
 
 export const Button = styled.button`
+    border: 0;
+    margin-top: 12px;
+    border-radius: 8px;
+    background-color: #fff;
     padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 24px;
+    color: rgba(23, 23, 27, 0.6);
+
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+`;
+
+export const Label = styled.span`
+    margin-top: 12px;
+    display: block;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 31px;
+    color: rgba(23, 23, 27, 0.6);
+`;
+
+export const Value = styled.p`
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 47px;
+    color: #fff;
 `;
