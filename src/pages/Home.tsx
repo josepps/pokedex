@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import CardPokemon, { CardPokemonProps } from "../components/CardPokemon";
 import NavBar from "../components/NavBar";
+import  Title  from '../components/Title';
 import api from "../services/api";
-import { Title, List, Input } from "./Home.style"
+import { List, Input } from "./Home.style";
 
 function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -39,7 +40,7 @@ function Home() {
     return (
         <>
     <NavBar />
-    <Title>Encontre todos os pokémons em um só lugar</Title>
+    <Title text="Encontre todos os pokémons em um só lugar" />
 
     <Input type="text" placeholder="Buscar por NOME ou ID" value={textoBusca} onChange={(event) => 
     setTextoBusca(event.target.value) } />
