@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import CardPokemon, { CardPokemonProps } from "../components/CardPokemon";
+import { List } from "../components/List.style";
 import NavBar from "../components/NavBar";
 import  Title  from '../components/Title';
 import api from "../services/api";
-import { List, Input } from "./Home.style";
+import { Input } from "./Home.style";
 
 function Home() {
     const [isLoading, setIsLoading] = useState(true);
